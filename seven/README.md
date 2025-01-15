@@ -1,1 +1,1 @@
-This is a file
+2차원 배열
