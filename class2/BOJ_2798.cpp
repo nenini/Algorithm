@@ -1,3 +1,4 @@
+//브루트포스 사용
 #include <iostream>
 using namespace std;
 int main(){
