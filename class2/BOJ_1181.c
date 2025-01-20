@@ -10,7 +10,9 @@ typedef struct
 }word;
 
 int compare(const void *a, const void *b){
-    word A = *(word *)a;
+    word A = *(word *)a; //(word *)로 a가 word 구조체를 가리키는 포인터 명시
+    //*로 변환 포인터를 역참조 하여, 해당 메모리 위치에 저장된 word 구조체 값을 가져옴. 
+    //즉 *(word *)a는 a 가 가리키는 구조체 의미
     word B = *(word *)b;
     if(A.length>B.length){
         return 1;
