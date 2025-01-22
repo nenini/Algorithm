@@ -1,4 +1,5 @@
 //이진탐색+정렬
+//이중 for문 사용시 O(n^2)->이진탐색(log2n)
 #include<stdio.h>
 #include<stdlib.h>
 int N, M;
