@@ -1,3 +1,4 @@
+//이진탐색+정렬
 #include<stdio.h>
 #include<stdlib.h>
 int N, M;
