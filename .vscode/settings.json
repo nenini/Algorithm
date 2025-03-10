@@ -1,0 +1,14 @@
+{
+  "files.associations": {
+    "queue": "cpp",
+    "ios": "cpp",
+    "__bit_reference": "cpp",
+    "bitset": "cpp",
+    "unordered_map": "cpp",
+    "iostream": "cpp",
+    "vector": "cpp",
+    "__locale": "cpp",
+    "string": "cpp",
+    "stack": "cpp"
+  }
+}
