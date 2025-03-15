@@ -9,6 +9,7 @@
     "vector": "cpp",
     "__locale": "cpp",
     "string": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "ratio": "cpp"
   }
 }
