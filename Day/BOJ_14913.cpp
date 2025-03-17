@@ -9,6 +9,10 @@ int main()
     cin.tie(0);
     cin >> a >> d >> k;
     sum += a;
+    if(a==k){
+        cout << result;
+        return 0;
+    }
     while (1)
     {
         result++;
@@ -16,9 +20,18 @@ int main()
         if(sum==k){
             cout << result;
             break;
-        }if(sum>k){
-            cout << "X";
-            break;
+        }
+        if(d>0){
+            if(sum>k){
+                cout << "X";
+                break;
+            }
+        }
+        else{
+            if(sum<k){
+                cout << "X";
+                break;
+            }
         }
     }
 }
