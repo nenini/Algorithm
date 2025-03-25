@@ -3,7 +3,7 @@
 using namespace std;
 int N, M;
 int result=0;
-int mini = 2000000001;
+int mini=2000000001;
 int arr[100001];
 int main()
 {
@@ -15,8 +15,8 @@ int main()
         cin >> arr[i];
     }
     sort(arr, arr + N);
-    int L = 0, R = 0;
-    while(R<N&&L<N){
+    int L = 0, R = 1;
+    while(L<N&&R<N){
         result = arr[R] - arr[L];
         if(result>=M){
             mini = min(mini, result);
@@ -27,5 +27,5 @@ int main()
             R++;
         }
     }
-    cout << mini;
+    cout<<mini;
 }
