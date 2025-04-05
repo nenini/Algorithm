@@ -10,6 +10,7 @@
     "__locale": "cpp",
     "string": "cpp",
     "stack": "cpp",
-    "ratio": "cpp"
+    "ratio": "cpp",
+    "ostream": "cpp"
   }
 }
