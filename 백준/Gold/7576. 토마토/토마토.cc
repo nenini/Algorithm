@@ -1,53 +1,48 @@
-#include<iostream>
-#include<queue>
+#include <bits/stdc++.h>
 using namespace std;
-
-int box[1000][1000];
-queue <pair<int, int> > q;
-int dx[4]={0,0,1,-1};
-int dy[4]={1,-1,0,0};
-int min_day=0;
-int n,m;
-void bfs(){
-    int x,y;
+int arr[1000][1000];
+int M, N;
+queue<pair<int, int> > q;
+int min_num;
+int dx[4] = {0, 0, 1, -1};
+int dy[4] = {-1, 1, 0, 0};
+void bfs() {
     while(!q.empty()){
-        x=q.front().first;
-        y=q.front().second;
+        int x = q.front().first;
+        int y = q.front().second;
         q.pop();
-        for(int i=0;i<4;i++){
-            int ax=x+dx[i];
-            int ay=y+dy[i];
-            if(ax>=0 && ay>=0&& ax<m && ay<n){
-                if(box[ax][ay]==0){
-                    box[ax][ay]=box[x][y]+1;
-                    q.push(pair<int, int>(ax, ay));
-                }
+        for (int i = 0; i < 4;i++){
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+            if(nx<0||ny<0||nx>=N||ny>=M) continue;
+            if(arr[nx][ny]==0){
+                q.push(make_pair(nx, ny));
+                arr[nx][ny] = arr[x][y] + 1;
             }
         }
     }
 }
-
-int main(){
-    cin>>n>>m;
-    for(int i=0;i<m;i++){
-        for(int j=0; j<n;j++){
-            cin>>box[i][j];
-            if(box[i][j]==1){
-                q.push(pair<int, int>(i, j));//1이면 저장
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cin >> M >> N;
+    for (int i = 0; i < N;i++){
+        for (int j = 0; j < M;j++){
+            cin >> arr[i][j];
+            if(arr[i][j]==1){
+                q.push(make_pair(i, j));
             }
         }
     }
     bfs();
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
-            if(box[i][j]==0){
-                cout<<-1;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            if(arr[i][j]==0){
+                cout << -1;
                 return 0;
             }
-            if(min_day<box[i][j]){
-                min_day=box[i][j];
-            }
+            min_num = max(arr[i][j], min_num);
         }
     }
-    cout<<min_day-1;
+    cout << min_num-1;
 }
