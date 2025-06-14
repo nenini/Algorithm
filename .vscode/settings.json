@@ -11,6 +11,18 @@
     "string": "cpp",
     "stack": "cpp",
     "ratio": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "iosfwd": "cpp",
+    "regex": "cpp",
+    "__split_buffer": "cpp",
+    "array": "cpp",
+    "deque": "cpp",
+    "forward_list": "cpp",
+    "list": "cpp",
+    "string_view": "cpp",
+    "__node_handle": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "unordered_set": "cpp"
   }
 }
