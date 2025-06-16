@@ -2,8 +2,10 @@
 #define INF (int)1e9
 using namespace std;
 int T;
-int main() { 
-    cin >> T; 
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cin >> T;
     while(T--){
         int min_num = INF;
         int max_num = 0;
