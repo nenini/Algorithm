@@ -1,4 +1,6 @@
+import java.io.*;
 import java.util.*;
+
 public class Main {
     static List<Integer>[] graph;
     static int[] visited;
@@ -6,21 +8,27 @@ public class Main {
     static int minSum = Integer.MAX_VALUE;
     static int minIndex;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        N = sc.nextInt();
-        M = sc.nextInt();
-        graph = new ArrayList[N + 1];
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+
+        st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+
+        graph = (List<Integer>[]) new ArrayList[N + 1];
         for (int i = 1; i <= N; i++) {
             graph[i] = new ArrayList<>();
         }
 
         for (int i = 0; i < M; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
+            st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
             graph[a].add(b);
             graph[b].add(a);
         }
+
         for (int i = 1; i <= N; i++) {
             int sum = bfs(i);
             if (sum < minSum) {
@@ -28,6 +36,7 @@ public class Main {
                 minIndex = i;
             }
         }
+
         System.out.println(minIndex);
     }
 
@@ -49,7 +58,5 @@ public class Main {
             }
         }
         return total;
-
     }
-    
 }
