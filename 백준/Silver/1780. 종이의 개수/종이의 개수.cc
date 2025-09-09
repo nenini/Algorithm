@@ -3,7 +3,9 @@ using namespace std;
 int N;
 int arr[2187][2187];
 int result[3];  //-1,0,1
+
 void fun(int a, int b, int size) {
+    bool skip=false;
     bool minusOne = false, zero = false, plusOne = false;
     for (int i = a; i < a + size; i++) {
         for (int j = b; j < b + size; j++) {
@@ -14,6 +16,13 @@ void fun(int a, int b, int size) {
             } else {
                 plusOne = true;
             }
+            if ((minusOne && zero) || (zero && plusOne) || (plusOne && minusOne)) {
+                skip = true;
+                break;
+            }
+        }
+        if(skip){
+            break;
         }
     }
     if ((minusOne && zero) ||(zero&&plusOne)||(plusOne&&minusOne)){
