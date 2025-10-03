@@ -23,6 +23,11 @@
     "__node_handle": "cpp",
     "map": "cpp",
     "set": "cpp",
-    "unordered_set": "cpp"
+    "unordered_set": "cpp",
+    "sstream": "cpp",
+    "__hash_table": "cpp",
+    "__tree": "cpp",
+    "initializer_list": "cpp",
+    "valarray": "cpp"
   }
 }
