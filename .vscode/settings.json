@@ -29,5 +29,6 @@
     "__tree": "cpp",
     "initializer_list": "cpp",
     "valarray": "cpp"
-  }
+  },
+  "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }
