@@ -21,7 +21,7 @@ double dfs(int currNode, int currBit) {
     dp[currNode][currBit] = INF;
     for (int i = 0; i < N; i++) {
         if (currBit & 1 << i) continue;
-        dp[currNode][currBit] = min(dp[currNode][currBit], distance(currNode,i)+dfs(i,currBit|1<<i));
+        dp[currNode][currBit] = min(dp[currNode][currBit], distance(currNode, i) + dfs(i, currBit | 1 << i));
     }
     return dp[currNode][currBit];
 }
@@ -35,6 +35,7 @@ int main() {
         vct.push_back(make_pair(x, y));
     }
     fill(&dp[0][0], &dp[0][0] + 16 * (1 << 16), -1.0);
-    cout.precision(8);
-    cout<< dfs(0, 1);
+
+    // cout.precision(8);
+    cout << fixed << setprecision(8) << dfs(0, 1);
 }
