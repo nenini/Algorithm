@@ -2,21 +2,14 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] food_times, long k) {
-        List<Pair> food = new ArrayList<>();
-        int answer = 0;
-
-        for (int i = 0; i < food_times.length; i++) {
-            food.add(new Pair(i, food_times[i]));
-        }
-
-        Collections.sort(food);
+        int[] food = food_times.clone();
+        Arrays.sort(food);
 
         int curN = 0;
         int total = food_times.length;
 
-        for (int i = 0; i < food.size(); i++) {
-            int idx = food.get(i).idx;
-            int f = food.get(i).f;
+        for (int i = 0; i < food.length; i++) {
+            int f = food[i];
 
             long n = (long) (total - i) * (f - curN);
 
@@ -24,38 +17,20 @@ class Solution {
                 k -= n;
                 curN = f;
             } else {
-                List<Pair> remain = new ArrayList<>(
-                    food.subList(i, total)
-                );
+                long next = k % (total - i);
 
-                remain.sort(Comparator.comparingInt(p -> p.idx));
+                for (int j = 0; j < food_times.length; j++) {
+                    if (food_times[j] > curN) {
+                        if (next == 0) {
+                            return j + 1;
+                        }
 
-                int next = (int) (k % (total - i));
-
-                answer = remain.get(next).idx + 1;
-                return answer;
+                        next--;
+                    }
+                }
             }
         }
 
         return -1;
-    }
-}
-
-class Pair implements Comparable<Pair> {
-    int idx;
-    int f;
-
-    Pair(int idx, int f) {
-        this.idx = idx;
-        this.f = f;
-    }
-
-    @Override
-    public int compareTo(Pair p) {
-        if (this.f != p.f) {
-            return Integer.compare(this.f, p.f);
-        }
-
-        return Integer.compare(this.idx, p.idx);
     }
 }
