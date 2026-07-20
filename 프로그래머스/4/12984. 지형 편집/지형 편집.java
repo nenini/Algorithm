@@ -11,7 +11,7 @@ public class Solution {
             }
         }
         
-        int start=0;
+        int start=minNum;
         int end=maxNum;
         
         while(start<=end){
